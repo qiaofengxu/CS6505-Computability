@@ -503,7 +503,7 @@
 			"file": "L2 Turing Machines/turing_machine.py",
 			"settings":
 			{
-				"buffer_size": 2590,
+				"buffer_size": 2753,
 				"line_ending": "Unix"
 			}
 		}
@@ -742,18 +742,18 @@
 				{
 					"buffer": 0,
 					"file": "L2 Turing Machines/turing_machine.py",
-					"semi_transient": true,
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2590,
+						"buffer_size": 2753,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								4,
+								4
 							]
 						],
 						"settings":
