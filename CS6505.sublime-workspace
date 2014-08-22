@@ -506,6 +506,24 @@
 				"buffer_size": 2753,
 				"line_ending": "Unix"
 			}
+		},
+		{
+			"file": "L2 Turing Machines/L2_Turing_Machine_Q2.py",
+			"settings":
+			{
+				"buffer_size": 1246,
+				"line_ending": "Unix",
+				"name": "##################################################"
+			}
+		},
+		{
+			"file": "L2 Turing Machines/L2_Turing_Machine_Q3.py",
+			"settings":
+			{
+				"buffer_size": 1413,
+				"line_ending": "Unix",
+				"name": "##################################################"
+			}
 		}
 	],
 	"build_system": "",
@@ -736,7 +754,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -764,6 +782,64 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "L2 Turing Machines/L2_Turing_Machine_Q2.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1246,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1005,
+								977
+							]
+						],
+						"settings":
+						{
+							"auto_name": "##################################################",
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "L2 Turing Machines/L2_Turing_Machine_Q3.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1413,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1407,
+								904
+							]
+						],
+						"settings":
+						{
+							"auto_name": "##################################################",
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 259.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
