@@ -1,0 +1,63 @@
+\documentclass[12pt]{amsart}
+\usepackage{fullpage}
+ 
+\title{CS 6505 - Homework 1}
+\author{Ken Brooks}
+\date{\today}
+ 
+\begin{document}
+\maketitle
+ 
+\noindent For this problem set, you may find it useful to consult Ken Rosen’s textbook \emph{Discrete Math and Its Applications}.
+ 
+\vspace{.2in}
+\begin{itemize}
+\item[{\rm 1.}] Give the contrapositive of the following statement. ``If every bird flies, then there is a hungry cat.''
+\\[.2in]\textbf{Answer:}
+\\[.2in]If there is not a hungry cat, then no bird flies.
+ 
+ 
+\vspace{.2in}
+\item[{\rm 2.}]  A proposition is a statement that can be true or false but not both.  Let A, B, and C be propositions. Let $\land$ denote logical AND, let $\lor$ denote logical OR, and let $\lnot$ denote logical NOT.  Argue that if $(A\lor B)\land(\lnot B\lor C)$ is true, then $(A \lor C)$ must be true as well.
+\\[.2in]\textbf{Answer:}
+\begin{itemize}
+\item $(A\lor B)\land(\lnot B\lor C)\Rightarrow(A \lor C)$ is true if all possible values in its domain map to "true" in its range.
+\item The table below maps each possibility of A, B, and C through each of the terms of the expression $(A\lor B)\land(\lnot B\lor C)\Rightarrow(A \lor C)$
+\item In each case the resulting value is true.
+\item Therefore $(A\lor B)\land(\lnot B\lor C)\Rightarrow(A \lor C)$, or if $(A\lor B)\land(\lnot B\lor C)$ is true, then $(A \lor C)$ must be true as well.
+\vspace{.2in}
+\item[]
+\begin{tabular} {| c | c | c |}
+  \hline
+  1 & 2 & 3 \\ \hline
+  4 & 5 & 6 \\ \hline
+  7 & 8 & 9 \\ \hline
+\end{tabular}
+\end{itemize}
+
+\vspace{.2in}
+\item[{\rm 3.}] We use the notation $A\Rightarrow B$ to indicate that A implies B.  This new proposition $A\Rightarrow B$ is true except when A is true and B is false.  We write $A\Leftrightarrow B$ when either both A and B are true or both are false.  Argue that $A\Leftrightarrow B$ if and only if $A\Rightarrow B$ and $B\Rightarrow A$.
+\\[.2in]\textbf{Answer:}
+ 
+\vspace{.2in}
+\item[{\rm 4.}]  We will use the notation $|\cdot |$ to indicate the number of elements in the set or its cardinality, e.g. $|A|$ is the number of elements in the set $A$.  Consider four sets $A, B, C, D$ such that the intersection of any three is empty.  Use the inclusion-exclusion to give an expression for $|A\cup B\cup C\cup D|$ without using any union $(\cup)$ symbols.
+\\[.2in]\textbf{Answer:}
+ 
+\vspace{.2in}
+\item[{\rm 5.}]  State the formal definition of $O(n)$, and show that the function $f(n) = (n^4 + n^2-9)/(n^3+1)$ is $O(n)$.
+\\[.2in]\textbf{Answer:}
+
+\vspace{.2in}
+\item[{\rm 6.}]  Let $A$ be a set.  We use the notation $P(A)$ to indicate the power set of $A$, which consist of all subsets of $A$.  For example, if $A=\{0,1\}$, then $P(A)=\{\{\},\{0\},\{1\},\{0,1\}\}$.  Consider $Q(n) = P(\{1, \ldots, n\}) -\{\{\}\}$ and use an inductive argument to show that the sum 
+\[\sum_{\{a_1, \ldots, a_k\} \in Q(n)}\frac{1}{a_1 \cdots a_k} = n \]
+(For example, the expansion for $n=3$ is $\frac{1}{1}+\frac{1}{2}+\frac{1}{3} + \frac{1}{1\cdot 2}+\frac{1}{1\cdot 3} + \frac{1}{2\cdot 3}+\frac{1}{1\cdot 2\cdot 3} = 3$.)
+\\[.2in]\textbf{Answer:}
+
+\vspace{.2in}
+\item[{\rm 7.}]  Prove that the set of all languages over $\{0, 1\}$ that have a bounded maximum string length is countable.
+\\[.2in]\textbf{Answer:}
+
+\end{itemize}
+ 
+ 
+\end{document}

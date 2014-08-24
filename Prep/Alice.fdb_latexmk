@@ -1,0 +1,13 @@
+# Fdb version 3
+["pdflatex"] 1408794547 "Alice.tex" "Alice.pdf" "Alice" 1408797103
+  "/usr/local/texlive/2014/texmf-dist/tex/latex/base/article.cls" 1399675188 20496 66dd832c447553f6776fbeac03bb0580 ""
+  "/usr/local/texlive/2014/texmf-dist/tex/latex/base/latex209.def" 1399675188 14629 7123bf19e9436d143f20bb2a8206da11 ""
+  "/usr/local/texlive/2014/texmf-dist/tex/latex/base/latexsym.sty" 1399675188 2642 083c9eea72717a651b2ddd06de3f46d4 ""
+  "/usr/local/texlive/2014/texmf-dist/tex/latex/base/size10.clo" 1399675188 8967 546f1b177fd18efd7ad74d77a7bdac64 ""
+  "/usr/local/texlive/2014/texmf-dist/tex/latex/base/tracefnt.sty" 1399675188 8425 4b2a2fc1ab66850e6c6500a457783c6e ""
+  "Alice.aux" 1408794547 8 a94a2480d3289e625eea47cd1b285758 ""
+  "Alice.tex" 1408738357 498 5006262f2e20de4526e4199421bfcd73 ""
+  (generated)
+  "Alice.log"
+  "Alice.aux"
+  "Alice.pdf"
