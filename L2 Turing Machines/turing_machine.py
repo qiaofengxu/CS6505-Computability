@@ -90,3 +90,61 @@ while not t.final():
 
 print("Result of the Turing machine calculation:")    
 t.show_tape()
+
+################################
+
+
+
+test_tape = ['0','1']
+
+#Specify your turing machine here
+
+q_0 = 0
+q_a = 5
+q_r = 6
+
+delta = {}
+delta[(0,'0')] = (0,'0','R')
+delta[(0,'1')] = (0,'1','R')
+delta[(0,'b')] = (1,'b','L')
+
+delta[(1,'0')] = (2,'b','R')
+delta[(1,'1')] = (3,'b','R')
+
+delta[(2,'b')] = (4,'0','L')
+delta[(3,'b')] = (4,'1','L')
+
+delta[(4,'b')] = (1,'b','L')
+
+delta[(1,'b')] = (5,'$','L')
+
+v = TuringMachine("01 ", 
+                  initial_state = 0,
+                  final_states = [5],
+                  transition_function=delta)
+v.show_tape()
+
+############################
+
+initial_state = "init",
+accepting_states = ["final"],
+transition_function = {("init","1"):("init", "x", "R"),
+                       ("init"," "):("final", " ", "N"),
+                       }
+final_states = ["final"]
+
+simple = TuringMachine("11 ", 
+                  initial_state = "init",
+                  final_states = final_states,
+                  transition_function=transition_function)
+
+
+print("Input on Tape:")
+simple.show_tape()
+
+while not t.final():
+    simple.step()
+
+print("Result of the Turing machine calculation:")    
+simple.show_tape()
+
