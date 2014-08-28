@@ -43,8 +43,55 @@
 test_tape = ['0','1','#','1','0','1','0']
 
 #Specify the Multitape machine here
-q_0 = 
-q_a = 
-q_r = 
+q_0 = 0
+q_a = 6
+q_r = 5
 
 delta = {}
+
+delta[(0,'#','b')] = (6,'#','b','R','R')  # Accept if x is empty
+
+# Leave a blank at the beginning of the second tape
+delta[(0,'0','b')] = (1,'0','b','S','R')
+delta[(0,'1','b')] = (1,'1','b','S','R')
+
+# copy x to T2
+delta[(1,'0','b')] = (1,'0','0','R','R')
+delta[(1,'1','b')] = (1,'1','1','R','R')
+delta[(1,'#','b')] = (2,'#','b','R','L')  # advance T1
+
+# Rewind T2 to the beginning
+delta[(2,'1','1')] = (2,'1','1','S','L')  # see anything, move left
+delta[(2,'0','0')] = (2,'0','0','S','L')
+delta[(2,'1','0')] = (2,'1','0','S','L')
+delta[(2,'0','1')] = (2,'0','1','S','L')
+
+delta[(2,'0','b')] = (3,'0','b','S','R')  # see a blank on T2, move R by 1
+delta[(2,'1','b')] = (3,'1','b','S','R')
+
+# Compare strings
+delta[(3,'1','1')] = (3,'1','1','R','R')  # match, loop
+delta[(3,'0','0')] = (3,'0','0','R','R')  # match, loop
+
+delta[(3,'0','b')] = (6,'0','b','S','S')  # accept
+delta[(3,'1','b')] = (6,'1','b','S','S')  # accept
+delta[(3,'b','b')] = (6,'b','b','S','S')  # accept
+
+delta[(3,'b','0')] = (5,'b','0','S','S')  # b on T1 before end of T2, fail
+delta[(3,'b','1')] = (5,'b','1','S','S')  # b on T1 before end of T2, fail
+
+delta[(3,'1','0')] = (4,'1','0','R','S')  # Mismatch, rewind T2, move T1 over before rewind
+delta[(3,'0','1')] = (4,'0','1','R','S')  # Mismatch, rewind T2, move T1 over before rewind
+
+# Rewind T2 and T1 to the next successive character
+delta[(4,'0','0')] = (4,'0','0','L','L')  # loop
+delta[(4,'0','1')] = (4,'0','1','L','L')  # loop
+delta[(4,'1','0')] = (4,'1','0','L','L')  # loop
+delta[(4,'1','1')] = (4,'1','1','L','L')  # loop
+
+delta[(4,'0','b')] = (3,'0','b','R','R')  # T2 blank, advance 1 to start
+delta[(4,'1','b')] = (3,'1','b','R','R') 
+
+
+
+
