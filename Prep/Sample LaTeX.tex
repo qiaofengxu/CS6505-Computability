@@ -1,0 +1,157 @@
+\documentclass[10pt]{article}  
+\usepackage{amssymb}  
+\usepackage{amsthm}
+\usepackage{amsmath}
+%\usepackage{fullpage}
+%\usepackage{graphicx}
+ 
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Begin user defined commands
+ 
+\newcommand{\map}[1]{\xrightarrow{#1}}
+\newcommand{\define}{\stackrel{\mathrm{def}}{=}}
+ 
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+ 
+%  End user defined commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% These establish different environments for stating Theorems, Lemmas, Remarks, etc.
+ 
+\newtheorem{Thm}{Theorem}
+\newtheorem{Prop}[Thm]{Proposition}
+\newtheorem{Lem}[Thm]{Lemma}
+\newtheorem{Cor}[Thm]{Corollary}
+ 
+\theoremstyle{definition}
+\newtheorem{Def}[Thm]{Definition}
+ 
+\theoremstyle{remark}
+\newtheorem{Rem}[Thm]{Remark}
+\newtheorem{Ex}[Thm]{Example}
+ 
+\theoremstyle{definition}
+\newtheorem{Exercise}[Thm]{Exercise}
+ 
+\newenvironment{Solution}{\noindent\textbf{Solution.}}{\qed}
+ 
+\renewcommand{\labelenumi}{(\alph{enumi})}
+ 
+% End environments 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Now we're ready to start
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+\begin{document}  
+ 
+\author{Professor Howard}
+\title{}
+\date{September 8, 2010}
+\maketitle
+ 
+\pagestyle{plain}   % These lines turn off the automatic page numbering
+ 
+ 
+\begin{Exercise}
+Prove that there is no rational number $x\in\Q$ satisfying $x^2=2$.
+\end{Exercise}
+ 
+\begin{Solution}
+To get a contradiction, assume there is an $x\in\Q$ such that $x^2=2$.  
+If we write $x=a/b$ as a quotient of two integers $a,b\in \Z$ with $b>0$ then
+\[
+x^2 =2 \implies (a/b)^2 =2 \implies a^2 = 2b^2.
+\]
+Now stare at the last equality
+\begin{equation}\label{pythag equality}
+a^2=2b^2
+\end{equation}
+and think about how many times the prime $2$ appears in the  prime factorization of each side.
+For any nonzero integer $m$, the prime  $2$ appears in the prime factorization of $m^2$  twice as many times
+as it appears in the prime factorization of $m$ itself.  In particular for any nonzero $m$ the prime $2$ appears in the
+prime factorization of $m^2$ an \emph{even} number of times.  Thus the prime factorization of the left hand side of
+(\ref{pythag equality}) has an even number of $2$'s in it.  What about the right hand side?  The prime factorization of $b^2$
+has an even number of $2$'s in it, and so the prime factorization of $2b^2$ has an odd number of $2$'s in it.  This 
+shows that the prime factorization of the right hand side of (\ref{pythag equality}) has an odd number of $2$'s.
+This is a contradiction, and so no such $x$ can exist.
+\end{Solution}
+ 
+\par\bigskip
+ 
+%%\includegraphics[bb = 0 0 100 150, keepaspectratio=true, width=.2in, height=.2in]{coolpic.jpg}
+ 
+ 
+ 
+\begin{Exercise}
+Prove that 
+\[
+1+2+3+\cdots+ n = \frac{n(n+1)}{2}
+\]
+for every $n\in \Z^+$.
+\end{Exercise}
+ 
+\begin{Solution}
+For each $n\in\Z^+$ let $P(n)$ be the statement 
+\[
+1+2+3+\cdots+ n = \frac{n(n+1)}{2}.
+\]
+We will use induction to prove that $P(n)$ is true for all $n\in\Z^+$.  
+First, consider the case $n=1$.  The statement $P(1)$ asserts that 
+\[
+1=\frac{1(1+1)}{2},
+\]
+and this is obviously true.  Next we assume that $P(k)$ is true for some $k\in \Z^+$ and deduce that $P(k+1)$ is true.  So, 
+suppose that $P(k)$ is true. This means that 
+\[
+1+2+3+\cdots+ k = \frac{k(k+1)}{2},
+\]
+and adding $k+1$ to both sides and simplifying results in
+\begin{align*}
+1+2+3+\cdots+ k  +(k+1) &= \frac{k(k+1)}{2} + (k+1) \\
+&= \frac{k(k+1)}{2} + \frac{2(k+1)}{2} \\
+&= \frac{k(k+1) + 2(k+1)}{2} \\
+&= \frac{ k^2+3k+2}{2} \\
+&= \frac{(k+1)(k+2)}{2}.
+\end{align*}
+Comparing the first and last expressions in this sequence of equalities, we find that $P(k+1)$ is also true.  
+Thus $P(k)\implies P(k+1)$, and so by induction $P(n)$ is true for all $n\in \Z^+$.
+\end{Solution}
+ 
+ 
+ 
+\begin{Exercise}
+Use the Well Ordering Property  of $\Z^+$ to prove the Principle of Mathematical Induction.
+\end{Exercise}
+ 
+\begin{Solution}
+Suppose we are given a sequence of statements $P(1), P(2), P(3), \ldots$ with the properties
+\begin{enumerate}
+\item $P(1)$ is true,
+\item for every $k\in \Z^+$, $P(k)\implies P(k+1)$.
+\end{enumerate}
+We must show that $P(n)$ is true for every $n\in \Z^+$.  To get a contradiction, suppose not.  
+Then there is some $m\in \Z^+$ such that the  statement $P(m)$ is false.  Consider the set
+\[
+S = \{ n\in \Z^+ : P(n) \mathrm{\ is\ false} \}.
+\]
+We know that $P(m)$ is false, and so $m\in S$.   In particular $S\not=\emptyset$.  By the Well Ordering Property of 
+$\Z^+$,  the set $S$ contains a smallest element, which we will call $m_0$.  We know that $P(1)$ is true, and so 
+$1\not\in S$. In particular $m_0\not=1$, and so $m_0>1$.  Thus $m_0-1\in \Z^+$ 
+and  it makes sense to consider the statement $P(m_0-1)$.  
+As $m_0-1 <m_0$ and $m_0$ is the \emph{smallest} element of $S$, $m_0-1\not\in S$.  
+Of course this implies that $P(m_0-1)$ is true.  Now taking $k=m_0-1$ in the implication $P(k)\implies P(k+1)$  
+we deduce that $P(m_0)$ is true, and so $m_0\not\in S$.  But this is ridiculous, as $m_0$ is not only in $S$, 
+it is the smallest element of $S$.  Thus we have arrived at a contradiction.
+\end{Solution}
+ 
+ 
+\end{document}
