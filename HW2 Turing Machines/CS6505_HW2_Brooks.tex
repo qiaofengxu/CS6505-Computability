@@ -1,0 +1,90 @@
+\documentclass[12pt]{amsart}
+\usepackage{fullpage}
+ 
+\title{CS 6505 - Homework 2}
+\author{Ken Brooks}
+\date{\today}
+ 
+\begin{document}
+\maketitle
+
+\begin{itemize}
+\item[{\rm 5.}] Another alternative Turing machine model has a single, one-way infinite tape, but two read-write heads.  The transition function has the form $\delta:Q\times\Gamma^{2}\rightarrow Q\times\Gamma^{2}\times\{L,R,S\}^{2}$, the same as a multi-tape machine.  Describe how you would program such a machine to decide the language $L=\{ww \mid w \in\{0,1\}^{*}\}$. 
+\\[.2in]Hint: You can use the S (stay put) movement to achieve the effect of having one head move faster than the other. 
+\\[.2in](Writing down the transition function is not required, but you should go into enough detail to convince the reader that you could do so if asked.)
+\\[.2in]\textbf{Answer:}
+\vspace{.2in}
+\begin{itemize}
+\item \textbf{State 1}: Start state. 
+\begin{itemize}
+\item If blank, accept
+\end{itemize}
+\item \textbf{State 2}: Shift string right. 
+\begin{itemize}
+\item Insert special character at beginning "\#"
+\item Shift string to the right
+\end{itemize}
+\item \textbf{State 3:} Find middle.
+\begin{itemize}
+\item Move 1::2 to the end, when H2 sees a blank
+\end{itemize}
+\item \textbf{State 4}: Check if odd.
+\begin{itemize}
+\item  H2L, if b, it's even and move back prior to rewind
+\item  H2L, if it's not blank, it's odd, and fail
+\end{itemize}
+\item \textbf{State 5}: Rewind.
+\begin{itemize}
+\item Backtrack and step H1 fwd 1
+\end{itemize}
+\item \textbf{State 6}: Match characters.
+\begin{itemize}
+\item Compare H1 and H2, if match good, if not, fail, move both right 1
+\end{itemize}
+\end{itemize}
+\vspace{.2in}
+\item[{\rm 6.}] Suppose we have a one-tape Turing machine M whose head instead of having to move just left or right in each computation step, can move left or right or stay put.  We called these “stay-put machine” in the lesson.  Prove that it is possible to create a new Turing machine $M'$ that recognizes the same language as $M$ by changing only the transition function $\delta$, keeping the same Q and Γ.
+\\[.2in]\textbf{Answer:}
+\vspace{.2in}
+\\For every place a "Stay" move is desired in the transition function, insert two elements
+\begin{itemize}
+\item A right move reading the element under the head and writing that same element.
+\item A left move that also reads the element under the head and writes that same element
+\end{itemize}
+\vspace{.2in}
+\item[{\rm 7.}] Suppose that we constrained the standard 1-tape Turing machine to only be able to write to each square on the tape two times.  Prove that this model can decide every language that a standard Turing machine can.
+\\[.2in]Hint: Use lots of tape and do a lot of copying.
+\\[.2in]\textbf{Answer:}
+\\[.2in] In concept we process the tape, writing to a clear space off the right of the original string and marking off characters from the original string as we go. This involves:
+\begin{itemize}
+	\item Writing a separator to the right of the original string.
+	\item Copying the tape up to the head position onto the new part of the tape, and marking off the symbols copied.
+	\item Writing the symbol required by the TM in the new position, marking the head position, and marking off the original symbol.
+	\item Copying the rest of the the tape over, and again marking off the symbols copied
+	\item Resuming the computations at the original state and marked tape position on the freshly copied tape.
+\end{itemize}
+\vspace{.2in}
+Bonus (hard): Describe how you would modify your machine so that it only writes to each square once.
+\\[.2in] \textbf{Answer:}
+\\[.2in]The single write problem...
+\vspace{.2in}
+\item[{\rm 8.}] Consider a Turing machine with a two-dimensional tape where the head can move up and down as well as right and left.  Assume that the paper is infinite in the right and downward directions.  Give a formal definition of this machine
+\\[.2in]\textbf{Answer:}\footnote{Definition modfied from Sipser, Michael, \textit{Introduction to the Theory of Computation, 3e}, p. 168}
+\vspace{.2in}
+\\ A Turing machine is a 7-tuple, $(Q, \Sigma, \Gamma, \delta, q_{0}, q_{accept}, q_{reject})$, where Q, $\Sigma$, $\Gamma$ are all finite sets and
+\begin{enumerate}
+\item Q is the set of states,
+\item $\Sigma$ is the input alphabet not containing the blank symbol $\sqcup$, 
+\item $\Gamma$ is the tape alphabet, where $\sqcup \in \Gamma$ and $\Sigma \subseteq \Gamma$,
+\item $\delta:Q\times\Gamma \rightarrow Q\times\Gamma \times\{L,R,U,D\}$ is the transition function, where allowed moves are L-left, R-right, U-up, D-down.
+\item $q_{0} \in Q$ is the start state,
+\item $q_{accept} \in Q$ is the accept state, and
+\item $q_{reject} \in Q$ is the reject state, where $q_{reject} \neq q_{accept}$.
+\end{enumerate}
+
+\vspace{.2in}
+
+\end{itemize}
+ 
+ 
+\end{document}

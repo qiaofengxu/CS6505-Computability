@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1408798486 "HW1.tex" "HW1.pdf" "HW1" 1409835221
+["pdflatex"] 1409856080 "CS6505_HW2_Brooks.tex" "CS6505_HW2_Brooks.pdf" "CS6505_HW2_Brooks" 1409856081
   "/usr/local/texlive/2014/texmf-dist/tex/latex/amscls/amsart.cls" 1248114418 61068 95063d327b97e96350372631fd99a8c8 ""
   "/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/amsfonts.sty" 1359763108 5949 3f3fd50a8cc94c3d4cbf4fc66cd3df1c ""
   "/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd" 1359763108 961 6518c6525a34feb5e8250ffa91731cff ""
@@ -10,9 +10,9 @@
   "/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsopn.sty" 1362954379 4082 502152465aedb8f6a3c4b0b7c0fa8ae5 ""
   "/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amstext.sty" 1362954379 2637 846ebe982d3549c7ede7ce135456f54a ""
   "/usr/local/texlive/2014/texmf-dist/tex/latex/preprint/fullpage.sty" 1137110595 2789 05b418f78b224ec872f5b11081138605 ""
-  "HW1.aux" 1408798486 144 c89edc3eb28a976f62dfba342f53289c ""
-  "HW1.tex" 1408798485 3288 674a284a92445be04474e239643b6c9f ""
+  "CS6505_HW2_Brooks.aux" 1409856081 144 c89edc3eb28a976f62dfba342f53289c ""
+  "CS6505_HW2_Brooks.tex" 1409856080 4815 31ee0ea705f05ffbb5e8d0aed3537938 ""
   (generated)
-  "HW1.aux"
-  "HW1.log"
-  "HW1.pdf"
+  "CS6505_HW2_Brooks.aux"
+  "CS6505_HW2_Brooks.pdf"
+  "CS6505_HW2_Brooks.log"
