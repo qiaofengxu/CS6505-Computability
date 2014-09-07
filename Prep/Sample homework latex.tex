@@ -1,0 +1,92 @@
+\documentclass[12 pt]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[pdftex]{graphicx}
+\usepackage{fullpage}   
+\usepackage{fancyhdr}
+\usepackage{cancel}
+
+\pagestyle{fancy}
+
+
+\rhead{Problem Set 1}
+\lhead{Benjamin Lerner}
+\chead{}
+\cfoot{\thepage}
+
+\headheight 35pt
+\headsep 15pt                   
+
+
+\begin{document}
+\thispagestyle{plain}
+Benjamin Lerner
+
+18.901
+
+Problem Set 1
+
+\subsection*{Problem 1}
+We define the function $f$ as follows:\\
+		$$f(1)=f_1(1)$$
+		$$f(n)=f_n(a_n)$$
+		where $a_n$ is the smallest element of the set $B_n:f_n^{-1}(A-f(S_n))$.
+		
+We show that $f$ is well-defined and injective on $\mathbb{Z}_+$ by induction on $n$.  The restriction of $f$ to $\{1\}$ is well-defined since $f_1(1)$ is well-defined, and it is trivially injective.
+
+Assume that the restriction of $f$ to $S_n$ is well-defined and injective.  Then, the cardinality of $f(S_n)$ is $n-1$; we also know that $f_n$ is injective, so the cardinality of the image of $f_n$ is $n$.  Thus, the cardinality of the set $B_n=f_n(S_{n+1})\cap\{A-f(S_n)\}=f_n(S_{n+1})\cap A-f_n(S_{n+1})\cap f(S_n)$ is at least one, i.e. the set is nonempty and therefore its smallest element $a_n$ is well-defined.  Since $a_n$ is an element of $f_n^{-1}(S_n)$, $f_n(a_n)$ is also well-defined.  Furthermore, $f_n(a_n)$ is not in the image of $f(S_n)$; hence, the restriction of $f$ to $S_{n+1}$ is injective and well-defined.
+
+\subsection*{Problem 2}
+We first define the string of a number $x$ in $\mathbb{R}$ to be the sequence of digits from $0$ to $9$ given by the base $10$ decimal expansion of $x$, starting from the leading digit of its integer part.  The string is finite if $x$ terminates and infinite otherwise; we note the position of the decimal point in the sense of being able to distinguish which digits in the string come before the decimal point and which come after, but there is no decimal point in the string itself.  A substring of $x$ is any portion of the string of $x$ containing all the digits from the $k^\textrm{th}$ digit of the string to the $(k+n)^\textrm{th}$ digit of the string, with $k,n>0$, $k$ finite and $n$ finite or infinite.
+
+\bigskip
+
+Consider the function $f:\mathbb{R}\to\mathcal{P}(\mathbb{Z_+})$, defined below. 
+
+\renewcommand{\labelitemi}{\Roman{enumi}.}
+\renewcommand{\labelitemii}{\roman{enumii}.}
+\begin{enumerate}
+	\item For $x\leq0$ and all $x$ that contain an infinite substring without the digit $9$, $f(x)=\emptyset$;
+	\item for $x$ in $\mathbb{Z}_+$, $f(x)=x$;
+	\item for all other $x$, $f(x)$ is computed as follows:
+		\begin{enumerate}
+			\item The first element of $f(x)$ is the integer part of its base $10$ expansion; i.e. $\lfloor x\rfloor$.
+			\item Take the first substring of $x$ after the decimal point which does not contain the digit $9$ such that the first digit immediately after the string is either a $9$ or, if the string of $x$ terminates before the digit $9$ appears, is the entire substring of $x$ after the decimal point. Note that these are the only two possibilities, as all $x$ that have infinite substrings which do not contain the digit $9$ have been dealt with in step $1$.  Treat this substring as an integer in base $9$ and convert it to base $10$; the resulting integer is the second element of $f(x)$.
+			\item Repeat the previous step, starting from the next substring that does not contain the digit $9$; continue for the entire decimal expansion of $x$.
+		\end{enumerate}
+\end{enumerate}
+
+Given any element $A$ of $\mathcal{P}(\mathbb{Z}_+)$, we consider the following $x$: let the integer part of $x$ be the first element of $A$.  Then, convert every other element of $A$ to base $9$ and form a string by placing them in succession, with one $9$ between every element; take this string to be the decimal part of $x$.  It is clear that $x$ does not end in an infinite string of $9$'s; hence $x$ is an element of $\mathbb{R}$.  Then $f(x)=A$; thus $f$ is surjective, and the cardinality of $\mathbb{R}$ is greater than or equal to the cardinality of $\mathcal{P}(\mathbb{Z_+})$.
+
+\bigskip
+
+Now, consider the following function $g:\mathcal{P}(\mathbb{Z_+})\to\mathbb{R}$, with $A$ an element of $\mathcal{P}(\mathbb{Z_+})$.
+
+\begin{enumerate}
+	\item $f(\emptyset)=0$.
+	\item For $A$ of cardinality $1$, $g(A)=a$, where $a$ is the element of $A$.
+	\item For $A$ of cardinality greater than $1$, arrange the elements of $A$ from least to greatest and the let the $i^\textrm{th}$ element be $a_i$. 
+		\begin{enumerate}
+			\item If $A$ is infinite and the string given by taking all of the elements in order from least to greatest ends in an infinite number of $9$'s, then $f(A) = -1$.
+			\item Otherwise, take $a_1$.  If $a_1$ is odd, then $f(A)<0$; otherwise $f(A)>0$.
+			\item The number of digits of $f(A)$ before the decimal point is equal to one less than the number of digits in $a_1$, i.e. $\lfloor\log_{10}(a_1)\rfloor$.
+			\item The string of digits of $f(A)$ is the string formed by taking all the elements aside from $a_1$ in order and combining them directly; the decimal point is then placed as required by the first integer. For example, $f(\{2\; 3\; 9\}) = 3.9$.  Any trailing zeros are dropped, e.g. $f(\{2\; 3\; 900\})=3.900=3.9$.
+		\end{enumerate}
+\end{enumerate}
+
+Given any $x$ in $\mathbb{R}$, we may construct $A$ in $\mathcal{P}(\mathbb{Z_+})$ such that $g(A)=x$ as follows.  If $x=0$ or $-1$, take $A=\emptyset$ or $A=\{9, 99, ... 10^n-1, ...\}$, respectively. For $x$ in $\mathbb{Z}_+$, let $A = \{x\}$.  
+
+Otherwise, if $-1<x<0$, let $a_1$ be $1$; if $0<x<-1$ let $a_1$ be 2.  For $x<-1$, let $a_1$ be $10^n+1$, where $n$ is the number of digits of the integral part of $x$; for $x>1$ let $a_1$ be $10^n$.  The remaining elements of $A$ are selected as follows in all four cases: $a_2$ is the integer given by the shortest substring at the beginning of $x$ such that $a_2>a_1$ and the first digit after $a_2$ in the string of $x$ is not $0$.  Similarly,  $a_{n+1}$ is the integer given by the shortest substring of $x$ starting immediately after $a_n$ such that $a_{n+1}>a_n$ and the digit immediately after $a_{n+1}$ in the string of $x$ is not $0$.  If the string of $x$ is finite, then the last $a_i$ should contain the minimum number of terminating zeros such that $a_i>a_{i-1}$.  The set $A$ is thus well-defined, as each $a_n$ does not start with a leading zero, and therefore $a_{n-1}<a_n<a_{n+1}$ and $a_n\in\mathbb{Z}_+$.
+
+Thus, there exists at least one $A$ in $\mathcal{P}(\mathbb{Z_+})$ for every $x$ in $\mathbb{R}$ such that $g(A)=x$; i.e. $g$ is surjective.  Therefore the cardinality of $\mathcal{P}(\mathbb{Z_+})$ is greater than or equal to the cardinality of $\mathbb{R}$.  We thus conclude from the functions $f$ and $g$ that the cardinalities of the sets $\mathbb{R}$ and $\mathcal{P}(\mathbb{Z_+})$ are equal.
+
+\subsection*{Problem 3}
+$\bar{A}=A\cup\{0\times1\}$
+\bigskip
+
+\noindent$\bar{B}=B\cup\{(0,1]\times0\}\cup\{[0,1)\times1\}$
+\bigskip
+
+\noindent$\bar{C}=\{x\times[0,1]\;|\;x\textrm{ is rational and }0<x<1\}\cup\{(0,1]\times0\}\cup\{[0,1)\times1\}$
+
+\end{document}

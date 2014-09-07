@@ -1,90 +1,148 @@
-\documentclass[12pt]{amsart}
-\usepackage{fullpage}
- 
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+\setlength{\headheight}{18pt}
+\pagestyle{fancyplain}
+\lhead{Ken Brooks}
+\chead{CS 6505 - Homework 2}
+\rhead{\today}
+
 \title{CS 6505 - Homework 2}
 \author{Ken Brooks}
-\date{\today}
  
 \begin{document}
-\maketitle
+
 
 \begin{itemize}
+\item[{\rm 1.}] Complete the exercise of tracing through the configuration sequence for the given Turing machine. \textbf{Answer:} Completed on Udacity.
+\vspace{.2in}
+\item[{\rm 2.}] Program a Turing machine the shifts its input one square to the right and places a \$ sign at the beginning of the tape. \textbf{Answer:} Completed on Udacity.
+
+	\vspace{.2in}
+\item[{\rm 3.}] Program a Turing machine that tests if the input string has an equal number of zeros and ones. \textbf{Answer:} Completed on Udacity
+	\vspace{.2in} 
+\item[{\rm 4.}] Program a two-tape Turing machine to perform substring search. \textbf{Answer:} Completed on Udacity
+\vspace{.2in}
 \item[{\rm 5.}] Another alternative Turing machine model has a single, one-way infinite tape, but two read-write heads.  The transition function has the form $\delta:Q\times\Gamma^{2}\rightarrow Q\times\Gamma^{2}\times\{L,R,S\}^{2}$, the same as a multi-tape machine.  Describe how you would program such a machine to decide the language $L=\{ww \mid w \in\{0,1\}^{*}\}$. 
-\\[.2in]Hint: You can use the S (stay put) movement to achieve the effect of having one head move faster than the other. 
-\\[.2in](Writing down the transition function is not required, but you should go into enough detail to convince the reader that you could do so if asked.)
-\\[.2in]\textbf{Answer:}
-\vspace{.2in}
-\begin{itemize}
-\item \textbf{State 1}: Start state. 
-\begin{itemize}
-\item If blank, accept
-\end{itemize}
-\item \textbf{State 2}: Shift string right. 
-\begin{itemize}
-\item Insert special character at beginning "\#"
-\item Shift string to the right
-\end{itemize}
-\item \textbf{State 3:} Find middle.
-\begin{itemize}
-\item Move 1::2 to the end, when H2 sees a blank
-\end{itemize}
-\item \textbf{State 4}: Check if odd.
-\begin{itemize}
-\item  H2L, if b, it's even and move back prior to rewind
-\item  H2L, if it's not blank, it's odd, and fail
-\end{itemize}
-\item \textbf{State 5}: Rewind.
-\begin{itemize}
-\item Backtrack and step H1 fwd 1
-\end{itemize}
-\item \textbf{State 6}: Match characters.
-\begin{itemize}
-\item Compare H1 and H2, if match good, if not, fail, move both right 1
-\end{itemize}
-\end{itemize}
-\vspace{.2in}
-\item[{\rm 6.}] Suppose we have a one-tape Turing machine M whose head instead of having to move just left or right in each computation step, can move left or right or stay put.  We called these “stay-put machine” in the lesson.  Prove that it is possible to create a new Turing machine $M'$ that recognizes the same language as $M$ by changing only the transition function $\delta$, keeping the same Q and Γ.
-\\[.2in]\textbf{Answer:}
-\vspace{.2in}
-\\For every place a "Stay" move is desired in the transition function, insert two elements
-\begin{itemize}
-\item A right move reading the element under the head and writing that same element.
-\item A left move that also reads the element under the head and writes that same element
-\end{itemize}
-\vspace{.2in}
-\item[{\rm 7.}] Suppose that we constrained the standard 1-tape Turing machine to only be able to write to each square on the tape two times.  Prove that this model can decide every language that a standard Turing machine can.
-\\[.2in]Hint: Use lots of tape and do a lot of copying.
-\\[.2in]\textbf{Answer:}
-\\[.2in] In concept we process the tape, writing to a clear space off the right of the original string and marking off characters from the original string as we go. This involves:
-\begin{itemize}
-	\item Writing a separator to the right of the original string.
-	\item Copying the tape up to the head position onto the new part of the tape, and marking off the symbols copied.
-	\item Writing the symbol required by the TM in the new position, marking the head position, and marking off the original symbol.
-	\item Copying the rest of the the tape over, and again marking off the symbols copied
-	\item Resuming the computations at the original state and marked tape position on the freshly copied tape.
-\end{itemize}
-\vspace{.2in}
-Bonus (hard): Describe how you would modify your machine so that it only writes to each square once.
-\\[.2in] \textbf{Answer:}
-\\[.2in]The single write problem...
-\vspace{.2in}
+	\\[.2in]Hint: You can use the S (stay put) movement to achieve the effect of having one head move faster than the other. 
+	\\[.2in](Writing down the transition function is not required, but you should go into enough detail to convince the reader that you could do so if asked.)
+	\\[.2in]\textbf{Answer:}
+	\\[.2in] This procedure finds the middle of an input string by advancing H2 twice as far as H1 for every move, then rewinding the heads to the start of each half of the string to compare characters.  It handles empty strings, and strings with odd and even numbers of characters.
+	\vspace{.2in}
+	\begin{itemize}
+	\item \textbf{State 1}: Start state
+	\begin{itemize}
+	\item If blank, accept
+	\item Otherwise move to state 2
+	\end{itemize}\vspace{.2in}
+	\item \textbf{State 2}: Shift string right
+	\begin{itemize}
+	\item Insert special character, ``\#'', at beginning
+	\item Shift string to the right
+	\item Move to state 3
+	\end{itemize}\vspace{.2in}
+	\item \textbf{State 3:} Rewind heads
+	\begin{itemize}
+	\item Move both heads back to first character (not \#)
+	\item Move to state 4
+	\end{itemize}\vspace{.2in}
+	\item \textbf{State 4:} Find middle
+	\begin{itemize}
+	\item Move H1 and H2 R simultaneously
+	\item Move H2 R once for each simultaneous move
+	\item Repeat both steps until H2 reads a blank
+	\item Move to state 5
+	\end{itemize}\vspace{.2in}
+	\item \textbf{State 5}: Check if string length is odd
+	\begin{itemize}
+	\item  Move H2 L
+	\item  If H2 reads blank, Fail. (\textit{Comment:} string length is odd)
+	\item  If H2 reads non-blank, move to state 6. (\textit{Comment:} string length is even)
+	\end{itemize}\vspace{.2in}
+	\item \textbf{State 6}: Rewind
+	\begin{itemize}
+	\item \textit{Comment:} Position H1 over first character of w and H2 over the first character of 2nd half of string
+	\item Move H1 and H2 L simultaneously
+	\item When H1 reads \#, move both H1 and H2 R
+	\item Move to state 7
+	\end{itemize}\vspace{.2in}
+	\item \textbf{State 7}: Match characters
+	\begin{itemize}
+	\item Compare characters read by H1 and H2
+	\item If they match, move both R and repeat
+	\item If they don't match: Fail
+	\item When H2 reads a blank: Accept
+	\end{itemize}
+	\end{itemize}
+	\vspace{.2in}
+	\newpage
+\item[{\rm 6.}] Suppose we have a one-tape Turing machine M whose head instead of having to move just left or right in each computation step, can move left or right or stay put.  We called these ``stay-put machines'' in the lesson.  Argue that it is possible to create a new Turing machine $M'$ (no ``stay put'', just moves left and right) that recognizes the same language as $M$ by changing only the transition function $\delta$, keeping the same Q and $\Gamma$.
+	\\[.2in]\textbf{Answer:}
+	\\[.2in] In this argument we are showing that: $\delta_{M}: Q \times \Gamma \rightarrow Q \times \Gamma \times \{L,R,S\}$ can be represented by: $\delta_{M'}: Q \times \Gamma \rightarrow Q \times \Gamma \times \{L,R\}$.
+	\begin{itemize}
+	\item Start by taking every stay-put transition from $M$,  $\delta_{M}(q_{i},b) = (q_{j},c,S)$, where $q_{i}$, $q_{j}$ are states in Q and b, c are characters in $\Gamma$.
+	\item Replace each stay-put transition with $|\Gamma| + 1$ transitions:
+	\begin{itemize}
+	  \item $\delta_{M'}(q_{i},b) = (q_{j},c,R)$, (\textit{comment:} states and characters remain the same as in $\delta_{M}(q_{i},b)$)
+	  \item and $\delta_{M'}(q_{i},x) = (q_{j},x,L)$, where x represents any character in $\Gamma$ (\textit{comment:} we want to move L without changing the tape).
+	\end{itemize}
+	\item $M'$ can now represent $M$ without a stay-put move, S
+	\end{itemize}
+	\vspace{.2in}
+
+\item[{\rm 7a.}] Suppose that we constrained the standard 1-tape Turing machine to only be able to write to each square on the tape two times.  Prove that this model can decide every language that a standard Turing machine can.
+	\\[.2in]Hint: Use lots of tape and do a lot of copying.
+	\\[.2in]\textbf{2-write answer:}
+	\\[.2in] Call this new machine a ``2-write'' machine.  The following procedure will show that the 2-write machine can simulate a standard Turing machine (TM) and can, as a result, decide every language that a standard TM can.
+	\\[.2in] The procedure involves copying the tape for each move of the machine: writing to a clear space off the right of the original string and crossing off characters from the original string as they are copied. There are two special situations around the head position that require a replacement rather than a copy. For each transition of the machine:	\vspace{.2in}
+	\begin{enumerate}
+		\item Mark the head position
+		\item Write a separator to the right of the original string.
+		\item Case 1: Right move
+		\begin{enumerate}
+			\item Copy symbols up to the cell before the mark, crossing each off on the original string as it is copied.
+			\item Instead of copying the cell with the mark, replace it in the new string with the ``write'' specified by the TM. Cross it off the original string.
+			\item Write the next symbol, marking it as the new head position. Cross it off the original string.
+			\item Continue copying the rest of the input, crossing each symbol off as it is copied.
+		\end{enumerate}
+		\item Case 2: Left move
+		\begin{enumerate}
+			\item Copy symbols up to two cells before the mark, crossing each off on the original string as it is copied.
+			\item Copy the cell before the mark, adding the mark for the head position to the symbol. Cross it off the original string.
+			\item Replace the symbol from the original string with the mark with the ``write'' specified by the TM. Cross it off the original string.
+			\item Continue copying the rest of the input, crossing each symbol off as it is copied.
+		\end{enumerate}
+	\end{enumerate}
+	~\\[.2in] The preceding procedure shows a simulation of a standard TM with only two writes per cell: once when the input is written to the tape and the second when it is crossed off. Consequently the 2-write machine can simulate a standard Turing machine (TM) and can, as a result, decide every language that a standard TM can.
+	\vspace{.2in}
+
+\item[{\rm 7b.}] Bonus (hard): Describe how you would modify your machine so that it only writes to each square once.
+	\\[.2in] \textbf{1-write answer:}
+	\\[.2in] To build a single-write machine, start with the 2-write machine. Modify it as follows:
+	\begin{itemize}
+	\item For every cell being copied, replace it with two cells, one blank and the other with the copied character.
+	\item Now, instead of crossing through cells as they are copied, place a cross in the blank cell to indicate the associated symbol has been ``used''.
+	\item Proceed as before.
+	\end{itemize}
+	\vspace{.2in}
+\newpage
 \item[{\rm 8.}] Consider a Turing machine with a two-dimensional tape where the head can move up and down as well as right and left.  Assume that the paper is infinite in the right and downward directions.  Give a formal definition of this machine
 \\[.2in]\textbf{Answer:}\footnote{Definition modfied from Sipser, Michael, \textit{Introduction to the Theory of Computation, 3e}, p. 168}
-\vspace{.2in}
-\\ A Turing machine is a 7-tuple, $(Q, \Sigma, \Gamma, \delta, q_{0}, q_{accept}, q_{reject})$, where Q, $\Sigma$, $\Gamma$ are all finite sets and
-\begin{enumerate}
-\item Q is the set of states,
-\item $\Sigma$ is the input alphabet not containing the blank symbol $\sqcup$, 
-\item $\Gamma$ is the tape alphabet, where $\sqcup \in \Gamma$ and $\Sigma \subseteq \Gamma$,
-\item $\delta:Q\times\Gamma \rightarrow Q\times\Gamma \times\{L,R,U,D\}$ is the transition function, where allowed moves are L-left, R-right, U-up, D-down.
-\item $q_{0} \in Q$ is the start state,
-\item $q_{accept} \in Q$ is the accept state, and
-\item $q_{reject} \in Q$ is the reject state, where $q_{reject} \neq q_{accept}$.
-\end{enumerate}
-
-\vspace{.2in}
-
+	\vspace{.2in}
+	\\ A Turing machine is a 7-tuple, $(Q, \Sigma, \Gamma, \delta, q_{0}, q_{accept}, q_{reject})$, where Q, $\Sigma$, $\Gamma$ are all finite sets and
+	\begin{enumerate}
+	\item Q is the set of states,
+	\item $\Sigma$ is the input alphabet not containing the blank symbol $\sqcup$, 
+	\item $\Gamma$ is the tape alphabet, where $\sqcup \in \Gamma$ and $\Sigma \subseteq \Gamma$,
+	\item $\delta:Q\times\Gamma \rightarrow Q\times\Gamma \times\{L,R,U,D\}$ is the transition function (\textit{comment:} where allowed moves are L-left, R-right, U-up, D-down).
+	\item $q_{0} \in Q$ is the start state,
+	\item $q_{accept} \in Q$ is the accept state, and
+	\item $q_{reject} \in Q$ is the reject state, where $q_{reject} \neq q_{accept}$.
+	\end{enumerate}
+	\vspace{.2in}
 \end{itemize}
- 
- 
 \end{document}

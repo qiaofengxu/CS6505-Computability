@@ -500,54 +500,19 @@
 	"buffers":
 	[
 		{
-			"file": "L2 Turing Machines/turing_machine.py",
+			"file": "HW2 Turing Machines/CS6505_HW2_Brooks.tex",
 			"settings":
 			{
-				"buffer_size": 3900,
+				"buffer_size": 7663,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "L2 Turing Machines/TM_emulator.py",
+			"file": "Prep/Sample homework latex.tex",
 			"settings":
 			{
-				"buffer_size": 1281,
-				"line_ending": "Unix",
-				"name": "def stateString(test_tape,headidx,currentState):"
-			}
-		},
-		{
-			"file": "L3 Church Turing Thesis/L3_Q1_Substring_Search.py",
-			"settings":
-			{
-				"buffer_size": 3256,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Prep/Sample LaTeX.tex",
-			"settings":
-			{
-				"buffer_size": 5311,
+				"buffer_size": 7086,
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "L2 Turing Machines/L2_Turing_Machine_Q2.py",
-			"settings":
-			{
-				"buffer_size": 1246,
-				"line_ending": "Unix",
-				"name": "##################################################"
-			}
-		},
-		{
-			"file": "L2 Turing Machines/L2_Turing_Machine_Q3.py",
-			"settings":
-			{
-				"buffer_size": 1413,
-				"line_ending": "Unix",
-				"name": "##################################################"
 			}
 		}
 	],
@@ -582,10 +547,25 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/kbrooks/Documents/CS6505 Computability"
+		"/Users/kbrooks/Documents/CS6505 Computability",
+		"/Users/kbrooks/Documents/CS6505 Computability/HW2 Turing Machines",
+		"/Users/kbrooks/Documents/CS6505 Computability/L2 Turing Machines",
+		"/Users/kbrooks/Documents/CS6505 Computability/Prep"
 	],
 	"file_history":
 	[
+		"/Users/kbrooks/Documents/CS6505 Computability/H1 Countability/HW1.tex",
+		"/Users/kbrooks/Downloads/Lecture 23 - Turing Machines - Examples.tex",
+		"/Users/kbrooks/Downloads/hw_08-2.tex",
+		"/Users/kbrooks/Documents/CS6505 Computability/HW2 Turing Machines/CS6505_HW2_Brooks.tex",
+		"/Users/kbrooks/Documents/CS6505 Computability/L2 Turing Machines/L2_Turing_Machine_Q3.py",
+		"/Users/kbrooks/Documents/CS6505 Computability/L2 Turing Machines/L2_Turing_Machine_Q2.py",
+		"/Users/kbrooks/Documents/CS6505 Computability/Prep/Sample LaTeX.tex",
+		"/Users/kbrooks/Documents/CS6505 Computability/L2 Turing Machines/Reverse_string.py",
+		"/Users/kbrooks/Documents/CS6505 Computability/L2 Turing Machines/Multitape_Turing.py",
+		"/Users/kbrooks/Documents/CS6505 Computability/L3 Church Turing Thesis/L3_Q1_Substring_Search.py",
+		"/Users/kbrooks/Documents/CS6505 Computability/L2 Turing Machines/TM_emulator.py",
+		"/Users/kbrooks/Documents/CS6505 Computability/L2 Turing Machines/turing_machine.py",
 		"/Users/kbrooks/Documents/CS7641 Machine Learning/Vector operations.py",
 		"/Users/kbrooks/Documents/MH/Projects/Inventory Planning Tool/data/Mfg specs prices and volumes.xlsx",
 		"/Users/kbrooks/Documents/MH/Projects/Inventory Planning Tool/common specs.py",
@@ -783,60 +763,58 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "L2 Turing Machines/turing_machine.py",
+					"file": "HW2 Turing Machines/CS6505_HW2_Brooks.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3900,
+						"buffer_size": 7663,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3739,
-								3739
+								6474,
+								6474
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1669.0,
+						"translation.y": 1615.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "L2 Turing Machines/TM_emulator.py",
+					"file": "Prep/Sample homework latex.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1281,
+						"buffer_size": 7086,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1053,
-								1053
+								297,
+								265
 							]
 						],
 						"settings":
 						{
-							"auto_name": "def stateString(test_tape,headidx,currentState):",
-							"syntax": "Packages/Python/Python.tmLanguage",
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
@@ -844,120 +822,6 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "L3 Church Turing Thesis/L3_Q1_Substring_Search.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3256,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1927,
-								1927
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 739.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "Prep/Sample LaTeX.tex",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5311,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5311,
-								5311
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 2070.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "L2 Turing Machines/L2_Turing_Machine_Q2.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1246,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								904,
-								883
-							]
-						],
-						"settings":
-						{
-							"auto_name": "##################################################",
-							"syntax": "Packages/Python/Python.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "L2 Turing Machines/L2_Turing_Machine_Q3.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1413,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								827,
-								827
-							]
-						],
-						"settings":
-						{
-							"auto_name": "##################################################",
-							"syntax": "Packages/Python/Python.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 259.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
 					"type": "text"
 				}
 			]
