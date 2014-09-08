@@ -39,10 +39,10 @@
 	\item If blank, accept
 	\item Otherwise move to state 2
 	\end{itemize}\vspace{.2in}
-	\item \textbf{State 2}: Shift string right
+	\item \textbf{State 2}: Shift string to the right by one
 	\begin{itemize}
 	\item Insert special character, ``\#'', at beginning
-	\item Shift string to the right
+	\item Shift string to the right by one
 	\item Move to state 3
 	\end{itemize}\vspace{.2in}
 	\item \textbf{State 3:} Rewind heads
@@ -52,10 +52,15 @@
 	\end{itemize}\vspace{.2in}
 	\item \textbf{State 4:} Find middle
 	\begin{itemize}
-	\item Move H1 and H2 R simultaneously
-	\item Move H2 R once for each simultaneous move
-	\item Repeat both steps until H2 reads a blank
-	\item Move to state 5
+	\item[] \textit{Comment: this is the step where H2 moves twice for every step of H1.}
+	\item Move both H1 and H2 R
+	\item Leave H1 stationary and move H2 R
+	\item Check if H2 reads a blank
+	\begin{itemize}
+	\item If H2 reads a blank, move to state 5
+	\item If H2 does not read a blank, repeat both previous steps
+	\end{itemize}
+	
 	\end{itemize}\vspace{.2in}
 	\item \textbf{State 5}: Check if string length is odd
 	\begin{itemize}
@@ -65,7 +70,7 @@
 	\end{itemize}\vspace{.2in}
 	\item \textbf{State 6}: Rewind
 	\begin{itemize}
-	\item \textit{Comment:} Position H1 over first character of w and H2 over the first character of 2nd half of string
+	\item[] \textit{Comment: positions H1 over first character of w and H2 over the first character of 2nd half of string.}
 	\item Move H1 and H2 L simultaneously
 	\item When H1 reads \#, move both H1 and H2 R
 	\item Move to state 7
