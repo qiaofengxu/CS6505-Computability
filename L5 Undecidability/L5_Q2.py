@@ -19,5 +19,9 @@
 # return N
 #
 ######################################################################
+
 def R(M):
-    #Your code here
+	def N(x):
+		M('')
+		if x == '100010': return True
+	return N

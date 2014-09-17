@@ -1,0 +1,43 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+\setlength{\headheight}{18pt}
+\pagestyle{fancyplain}
+\lhead{Ken Brooks}
+\chead{CS 6505 - Homework 3}
+\rhead{\today}
+
+\title{CS 6505 - Homework 3}
+\author{Ken Brooks}
+ 
+\begin{document}
+
+Answer the questions below, paying particular attention to the logic of your arguments. Short descriptions for how a function might computed (on any machine we’ve talked about) are sufficient to show that it is computable.
+\begin{enumerate}
+	\item Show that if A is recognizable and A reduces to Aˉ , then A is decidable.
+	\item Let $ B = \{\langle M \rangle \mid M accepts exactly one of the strings 00 and 11\}$.
+		\begin{enumerate}
+		\item What does Rice's theorem say about B?
+		\item Show that halting problem reduces to B.
+		\item Show that halting problem reduces to the complement of B.
+		\item Are B or its complement recognizable?
+\end{enumerate}\item A language is co-recognizable if its complement is recognizable. Argue why each of the following languages is or is not recognizable and why it is or is not co-recognizable.
+\begin{enumerate}
+\item $L1 = \{\langle M \rangle \mid \mbox{M enters state q27 for some input string x}\}$ .
+\item $L2 = \{\angle M \rangle \mid \mbox{L(M) contains at most two strings}\}$.
+\item $L3 = \{\langle M \rangle \mid L(M) \subseteq \Sigma^{*}\}$
+\end{enumerate}\item A computable verifier is a deterministic Turing machine V that takes two arguments: x (the input) and y (the proof). A computable verifier always halts. Show that a language L is recognizable if and only if there exists a computable verifier V such that
+\begin{enumerate}
+\item if $x \in L$ , then there is a string y such that V(x,y) accepts, and
+\item if $x \notin L$, then V(x,y) rejects for every string y.
+\end{enumerate}\item Consider the following property: $P = \{\langle M \rangle \mid \mbox{L(M) is accepted by some Turing machine that has an odd number of states} \}$ . Show that P is a trivial property.
+\item [Bonus] Read about The Recursion Theorem in the Sipser text. One implication of the recursion theorem is that in any general purpose programming language, one can write code that outputs the code itself. Write a python program that prints its own code. Do not use any file operations.
+\\[0.2in] \url{https://www.udacity.com/course/viewer#!/c-ud557/l-1209378918/m-2986218594}
+
+\end{enumerate}
+\end{document}

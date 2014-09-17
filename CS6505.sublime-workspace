@@ -500,10 +500,10 @@
 	"buffers":
 	[
 		{
-			"file": "HW2 Turing Machines/CS6505_HW2_Brooks.tex",
+			"file": "HW3 Decidability and Undecidability/CS6505_HW3_Brooks.tex",
 			"settings":
 			{
-				"buffer_size": 9482,
+				"buffer_size": 2400,
 				"line_ending": "Unix"
 			}
 		},
@@ -511,7 +511,7 @@
 			"file": "L5 Undecidability/L5_Q2.py",
 			"settings":
 			{
-				"buffer_size": 757,
+				"buffer_size": 799,
 				"line_ending": "Unix",
 				"name": "##################################################"
 			}
@@ -520,7 +520,7 @@
 			"file": "L5 Undecidability/L5_Q3.py",
 			"settings":
 			{
-				"buffer_size": 1018,
+				"buffer_size": 1305,
 				"line_ending": "Unix",
 				"name": "##################################################"
 			}
@@ -787,24 +787,24 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "HW2 Turing Machines/CS6505_HW2_Brooks.tex",
+					"file": "HW3 Decidability and Undecidability/CS6505_HW3_Brooks.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9482,
+						"buffer_size": 2400,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2715,
-								2715
+								1995,
+								1995
 							]
 						],
 						"settings":
@@ -813,10 +813,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 871.0,
+						"translation.y": 229.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -825,15 +825,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 757,
+						"buffer_size": 799,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								757,
-								757
+								798,
+								798
 							]
 						],
 						"settings":
@@ -845,7 +845,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -854,27 +854,28 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1018,
+						"buffer_size": 1305,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1018,
-								1018
+								740,
+								740
 							]
 						],
 						"settings":
 						{
 							"auto_name": "##################################################",
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 127.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -970,7 +971,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 242.0
+		"height": 245.0
 	},
 	"output.find_results":
 	{

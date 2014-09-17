@@ -26,6 +26,22 @@
 # assert( OnlyEmptyString( R(rejects) ))
 # assert( not OnlyEmptyString ( R(loops) ))
 ######################################################################
+
+
+def bal_check(string):
+	length = len(string)
+	if length % 2 == 1:
+		return False
+	for i,letter in enumerate(string):
+		print i, letter
+		if i < length/2 and letter != "0": return False
+		if i >= length/2 and letter != "1": return False
+	return True
+
+
 def R(M):
-	#Your code here
+	def N(x):
+		M('')
+		return bal_check(x)
+	return N
 	
