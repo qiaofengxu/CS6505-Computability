@@ -1,0 +1,69 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{listings}
+% \usepackage{endnotes}
+\lstloadlanguages{Python}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+\setlength{\headheight}{18pt}
+\pagestyle{fancyplain}
+\lhead{Ken Brooks}
+\chead{CS 6505 - Notes on Mapping Reductions}
+\rhead{\today}
+
+\title{CS 6505 - Notes on Mapping Reductions}
+\author{Ken Brooks}
+ 
+\begin{document}
+\lstset{language=Python, tabsize = 4}
+Collection of mapping reductions and pseudocode that prove them.
+\begin{enumerate}
+	\item Show a reduction from $H_{TM} \leq_{M}B$, where H = $\{<M> \mid \mbox{M halts on } \epsilon\}$
+		\begin{itemize}
+			\item Pseudo code
+				\begin{lstlisting}
+				def R(<M>):
+					def N(x):
+						if x == ``00'':
+							M("")
+							return Accept
+						elif x == ``11'':
+							return Reject
+						else:
+							return Reject
+					return(N)
+				\end{lstlisting}
+		\item Commentary:
+			\begin{itemize}
+				\item If N is in B then N accepts 00 or 11, but not both.  By construction N doesn't accept 11, so it must accept 00.  The only way it can accept 00 is when $M(\epsilon)$ either accepts or rejects.
+				\item If N is not in B then it can't accept on the previous conditions: N must accept either both 00 and 11, or neither. By construction N rejects 11, which means it can't also reject 00. Again by construction N can't ever reject 00: it either accepts 00 or it loops.
+			\end{itemize}
+		\end{itemize}
+	\item Show a reduction from $H_{TM} \leq_{M}B$, where H = $\{<M> \mid \mbox{M halts on } \epsilon\}$
+		\begin{itemize}
+			\item Pseudo code
+				\begin{lstlisting}
+				def R(<M>):
+					def N(x):
+						if x == ``00'':
+							M("")
+							return Accept
+						elif x == ``11'':
+							return Reject
+						else:
+							return Reject
+					return(N)
+				\end{lstlisting}
+		\item Commentary:
+			\begin{itemize}
+				\item If N is in B then N accepts 00 or 11, but not both.  By construction N doesn't accept 11, so it must accept 00.  The only way it can accept 00 is when $M(\epsilon)$ either accepts or rejects.
+				\item If N is not in B then it can't accept on the previous conditions: N must accept either both 00 and 11, or neither. By construction N rejects 11, which means it can't also reject 00. Again by construction N can't ever reject 00: it either accepts 00 or it loops.
+			\end{itemize}
+		\end{itemize}
+\end{enumerate}
+\end{document}

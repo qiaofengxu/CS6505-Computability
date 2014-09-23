@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1411430524 "CS6505_HW3_Brooks.tex" "CS6505_HW3_Brooks.pdf" "CS6505_HW3_Brooks" 1411430555
+["pdflatex"] 1411384066 "Notes on Reductions.tex" "Notes on Reductions.pdf" "Notes on Reductions" 1411384066
   "/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii" 1337017135 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2014/texmf-dist/tex/generic/ifxetex/ifxetex.sty" 1284331290 1458 43ab4710dc82f3edeabecd0d099626b2 ""
   "/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/gettitlestring.sty" 1303254447 8237 52810bdb4db2270e717422560a104aea ""
@@ -50,11 +50,11 @@
   "/usr/local/texlive/2014/texmf-dist/tex/latex/pdftex-def/pdftex.def" 1306616590 55368 3c8a0d99822330f2dfabc0dfb09ce897 ""
   "/usr/local/texlive/2014/texmf-dist/tex/latex/tools/calc.sty" 1399675188 10002 f32f4490d0c87a7854adf544bd459155 ""
   "/usr/local/texlive/2014/texmf-dist/tex/latex/url/url.sty" 1388531844 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "CS6505_HW3_Brooks.aux" 1411430525 662 b2b94621371df8d9296b8bf5bec1b851 ""
-  "CS6505_HW3_Brooks.out" 1411430525 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "CS6505_HW3_Brooks.tex" 1411430524 8558 6f428a6eaaea7635bcbafdb027acaa87 ""
+  "Notes on Reductions.aux" 1411384066 662 b2b94621371df8d9296b8bf5bec1b851 ""
+  "Notes on Reductions.out" 1411384066 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "Notes on Reductions.tex" 1411384065 2516 46b30cb1c96bb5a543928fa746842e2d ""
   (generated)
-  "CS6505_HW3_Brooks.pdf"
-  "CS6505_HW3_Brooks.aux"
-  "CS6505_HW3_Brooks.log"
-  "CS6505_HW3_Brooks.out"
+  "Notes on Reductions.out"
+  "Notes on Reductions.log"
+  "Notes on Reductions.aux"
+  "Notes on Reductions.pdf"
