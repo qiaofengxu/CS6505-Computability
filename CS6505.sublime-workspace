@@ -503,7 +503,7 @@
 			"file": "HW3 Decidability and Undecidability/CS6505_HW3_Brooks.tex",
 			"settings":
 			{
-				"buffer_size": 9006,
+				"buffer_size": 9161,
 				"line_ending": "Unix"
 			}
 		},
@@ -824,15 +824,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9006,
+						"buffer_size": 9161,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4138,
-								4138
+								7908,
+								7908
 							]
 						],
 						"settings":
@@ -841,7 +841,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1604.0,
+						"translation.y": 2307.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,

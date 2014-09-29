@@ -7,8 +7,3 @@ print "\n---------\n"
 x='x=%s\nprint x%%`x`'
 print x%`x`
 
-
-print "\n---------\n"
-
-x = 'a \nprint x'
-print x

@@ -36,12 +36,12 @@ Answer the questions below, paying particular attention to the logic of your arg
 		\item What does Rice's theorem say about B?
 			\\[.2in]\textbf{Answer:}
 			\begin{itemize}
-			\item The property P, that M accepts exactly one of the strings 00 and 11, is non-trivial, therefore B is undecidable.
+			\item The property P, that M accepts exactly one of the strings 00 and 11, is non-trivial since P is a property that contains some, but not all, TM descriptions. Therefore B is undecidable.
 			\end{itemize}
 		\item Show that halting problem reduces to B.
 			\\[.2in]\textbf{Answer:}
 			\begin{itemize}
-			\item Show a reduction from $H_{TM} \leq_{M}B$, where H = $\{<M> \mid \mbox{M halts on } \epsilon\}$
+			\item This is a reduction from $H_{TM} \leq_{M}B$, where H = $\{<M> \mid \mbox{M halts on } \epsilon\}$
 			\begin{lstlisting}
 			def R(<M>):
 				def N(x):
@@ -54,7 +54,7 @@ Answer the questions below, paying particular attention to the logic of your arg
 						return Reject
 				return(N)
 			\end{lstlisting}
-			\item Commentary on the reduction:
+			\item Proof:
 			\begin{itemize}
 				\item If N is in B then N accepts 00 or 11, but not both.  By construction N doesn't accept 11, so it must accept 00.  The only way it can accept 00 is when $M(\epsilon)$ either accepts or rejects.
 				\item If N is not in B then it can't accept on the previous conditions: N must accept either both 00 and 11, or neither. By construction N rejects 11, which means it can't also reject 00. Again by construction N can't ever reject 00: it either accepts 00 or it loops.
@@ -78,7 +78,7 @@ Answer the questions below, paying particular attention to the logic of your arg
 						return Reject
 				return(N)
 			\end{lstlisting}
-			\item Commentary on the reduction:
+			\item Proof:
 			\begin{itemize}
 				\item If N is in $\overline{B}$ then N accepts either both 00 and 11, or neither.  By construction N accepts 11, so it must also accept 00.  The only way it can accept 00 is when $M(\epsilon)$ halts (accepts or rejects). If $M(\epsilon)$ loops, then N will either loop or reject.
 				\item If N is not in $\overline{B}$ then then N accepts 00 or 11, but not both. By construction N accepts 11, which means it can't also accept 00, which it does. 
@@ -100,12 +100,17 @@ Answer the questions below, paying particular attention to the logic of your arg
 		\item $L1 = \{\langle M \rangle \mid \mbox{M enters state q27 for some input string x}\}$.\footnote{NB: This is the dead code problem, which is not decidable}
 			\\[.2in]\textbf{Answer:}
 			\begin{itemize}
-			\item We can reduce $H_{TM}$ to L1 by defining a new machine M' that halts if M enters q27.
-			\item $H_{TM}$ is not decidable, hence L1 is not decidable.
-			\item $H_{TM}$ is recognizable (you can run it until it halts), but $\overline{H_{TM}}$ is not.
-			\item $\overline{H_{TM}}$ reduces to $\overline{L1}$. \textbf{Proof reference}
-			\item $\overline{H_{TM}}$ is not recognizable, therefore $\overline{L1}$ is not recognizable.
-			\item Consequently L1 is recognizable, but not co-recognizable.
+			\item Reduce $L1$ to $H_{TM}$ to prove $L1$ is recognizable
+			\begin{enumerate}
+			\item Build $N$ so that it accepts if $M \in L1$ enters state q27 and accepts, and rejects if M enters state q27 and rejects. N will loop if M loops.
+			\item Since $L1 \leq_{M} H_{TM}$ and $H_{TM}$ is recognizable, then $L1$ is recognizable.
+			\end{enumerate}
+			\item Prove $L1$ is not co-recognizable:
+			\begin{enumerate}
+			\item By Rice's theorem $L1$ is not decidable since there will be TMs that both enter and do not enter q27 on input x.
+			\item Because $L1$ is recognizable, but not decidable, $\overline{L1}$ is not recognizable.
+			\end{enumerate}
+			\item Consequently $L1$ is recognizable, but not co-recognizable.
 			\end{itemize}
 		\item $L2 = \{\langle M \rangle \mid \mbox{L(M) contains at most two strings}\}$.
 		\\[.2in]\textbf{Answer:}
@@ -134,31 +139,26 @@ Answer the questions below, paying particular attention to the logic of your arg
 		\item if $x \notin L$, then $V(x,y)$ rejects for every string $y$.
 	\\[.2in]\textbf{Answer:}
 	\begin{itemize}
-	\item \textit{Theorem: }If a language $L$ is recognizable then there exists a computable verifier $V$.
+	\item First prove that if a language $L$ is recognizable then there exists a computable verifier $V_{L}(x,y)$ as described above:
 	\begin{itemize}
-	\item If L is recognizable then there is a machine, M, that accepts every string in L.
-	\item Let $y = \epsilon$ and concatenate $y$ to every string in L.
-	\item M is a computable verifier for L since it recognizes every string in L in the presence of $y$.
+	\item If $L$ is recognizable then there is a machine, $M$, that accepts every string $x, x \in L$ and does not accept for every string x, $x \not\in L$.
+	\item Choose a $y$ and consruct a third machine, $M_{y}$ that recognizes it. I can do this since the language $L1 = \{<M1>\mid M \mbox{ accepts } y \}$ is recognizable from reduction to $A_{TM}$.
+	\item Compose a machine $V(x,y)$ from $M(x)$ and $M_{y}(y)$ such that $V(x,y)$ will accept if both $M$ and $M_{y}$ accept and reject if either $M$ or $M_{y}$ does not accept.
+	\item $V(x,y)$ is a computable verifier for $L$ according to the definition.
 	\end{itemize}
-	\item \textit{Theorem: } If there exists a computable verifier $V$, then language $L$ is recognizable.
+	\item Next prove that if there exists a computable verifier $V_{L}(x,y)$ as described above, then language $L$ is recognizable:
 	\begin{itemize}
-	\item A computable verifier $V(x,y)$ is a decider for L in the presence of y: By definition it accepts when $x$ is in $L$ and rejects when $x$ is not in $L$.
-	\item If a string $x$ is in L then $V(x,y)$ will accept it.
-	\item L is recognizable.
+	\item A computable verifier $V(x,y)$ is a decider for $L$ given an input $y$: it accepts if $x \in L$ and rejects if $x \not\in L$.
+	\item $L$ is decidable therefore it is also recognizable (\textit{Sipser, theorem 4.22})
 	\end{itemize}
-	\item Hence a language L is recognizable if and only if there exists a computable verifier V such that
-		\begin{enumerate}
-		\item [(a)]if $x \in L$ , then there is a string y such that V(x,y) accepts, and
-		\item [(b)]if $x \notin L$, then V(x,y) rejects for every string y.
-		\end{enumerate}
 	\end{itemize}
 \end{enumerate}
 \item Consider the following property: $P = \{\langle M \rangle \mid$ L(M) is accepted by some Turing machine that has an odd number of states\}. Show that P is a trivial property.
 		\\[.2in]\textbf{Answer:}
 	\begin{itemize}
-	\item Modify the Turing machine in question by adding an inactive state.  
-	\item L(M) is now accepted by some Turing machine with an even number of states. 
-	\item The same language L(M) is now accepted regardless of whether the property P applies
+	\item Modify the Turing machine in question by adding any odd number of inactive states.  
+	\item L(M) is now accepted by any number of Turing machine with an even number of states. 
+	\item The same language L(M) is now accepted regardless of whether the property P applies.
 	\item Consequently the property is trivial.
 	\end{itemize}
 \newpage
@@ -166,10 +166,9 @@ Answer the questions below, paying particular attention to the logic of your arg
 \\[0.2in] \url{https://www.udacity.com/course/viewer#!/c-ud557/l-1209378918/m-2986218594}
 \\[.2in]\textbf{Answer:}
 \\[0.2in] I submitted the following code to the link above.  The answer was accepted.
-		\begin{lstlisting}
-		x='x=%s\nprint x%%`x`'
-		print x%`x`
-		\end{lstlisting}
-
+\begin{lstlisting}
+x='x=%s\nprint x%%`x`'
+print x%`x`
+\end{lstlisting}
 \end{enumerate}
 \end{document}
